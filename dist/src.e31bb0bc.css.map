@@ -1,0 +1,1 @@
+{"version":3,"sources":["styels\\main.scss"],"names":[],"mappings":"AAEA;EACE,kBAHK","file":"src.e31bb0bc.css","sourceRoot":"..\\src","sourcesContent":["$grey: #000;\r\n\r\nbody {\r\n  background-color: $grey;\r\n}\r\n"]}
