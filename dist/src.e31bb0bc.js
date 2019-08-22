@@ -195,7 +195,12 @@ module.hot.accept(reloadCSS);
 require("./styels/main.scss");
 
 // //Listen for form submit
-document.getElementById("myForm").addEventListener("submit", saveBookmark); // svaebook mark
+document.getElementById("myForm").addEventListener("submit", saveBookmark);
+
+window.onload = function () {
+  console.log("it works");
+}; // svaebook mark
+
 
 function saveBookmark(e) {
   // get form values
@@ -254,33 +259,23 @@ function saveBookmark(e) {
 
 function fetchBookmarks(url) {
   console.log(url);
-} // // fetch book marks
-// function fetchBookmarks() {
-//   let bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
-//   // get output id
-//   let bookmarkResults = document.getElementById("bookmarkResults");
-//   //   build output
-//   bookmarkResults.innerHTML = "";
-//   // loop bookmarks in local and out put one by one
-//   for (let i = 0; i < bookmarks.length; i++) {
-//     let name = bookmarks[i].name;
-//     let url = bookmarks[i].url;
-//     //build output
-//     bookmarkResults.innerHTML +=
-//       '<div class="well">' +
-//       "<h3>" +
-//       name +
-//       ' <a class="btn btn-default" target="_blank" href="' +
-//       url +
-//       '">Visit</a> ' +
-//       " <a onclick=\"deleteBookmark('" +
-//       url +
-//       '\')" class="btn btn-danger" href="#">Delete</a> ' +
-//       "</h3>" +
-//       "</div>";
-//   }
-// }
-// form validation
+} // fetch book marks
+
+
+function fetchBookmarks() {
+  var bookmarks = JSON.parse(localStorage.getItem("bookmarks")); // get output id
+
+  var bookmarkResults = document.getElementById("bookmarkResults"); //   build output
+
+  bookmarkResults.innerHTML = ""; // loop bookmarks in local and out put one by one
+
+  for (var i = 0; i < bookmarks.length; i++) {
+    var name = bookmarks[i].name;
+    var url = bookmarks[i].url; //build output
+
+    bookmarkResults.innerHTML += '<div class="well">' + "<h3>" + name + ' <a class="btn btn-default" target="_blank" href="' + url + '">Visit</a> ' + " <a onclick=\"deleteBookmark('" + url + '\')" class="btn btn-danger" href="#">Delete</a> ' + "</h3>" + "</div>";
+  }
+} // form validation
 
 
 function validateForm(siteName, siteUrl) {
@@ -334,7 +329,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58409" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50828" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

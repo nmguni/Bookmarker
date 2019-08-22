@@ -8,7 +8,7 @@
     <title>Book Mark App</title>
   <script src="/main.7d3cf7bc.js"></script><link rel="stylesheet" href="/src.e31bb0bc.css"></head>
 
-  <body onload="fetchBookmarks()">
+  <body onload="fetchBookmarks();">
     <form id="myForm">
       <div class="container">
         <h1>Bookmark Your Favorite Sites</h1>
@@ -25,37 +25,46 @@
     </form>
     <!-- book mark results -->
     <div id="bookmarkResults"></div>
-    <script>function deleteBookmark(url) {
-  // get bookmarks from local storage
-  var bookmarks = JSON.parse(localStorage.getItem("bookmarks")); // loop through bookmarks
-
-  for (var i = 0; i < bookmarks.length; i++) {
-    if (bookmarks[i].url === url) {
-      // remove from array
-      bookmarks.splice(i, 1);
-    }
-  } // reset back to local storage
-
-
-  localStorage.setItem("bookmarks", JSON.stringify(bookmarks)); // refetch bookmarks
-
-  fetchBookmarks();
-}
-
-function fetchBookmarks() {
-  var bookmarks = JSON.parse(localStorage.getItem("bookmarks")); // get output id
-
-  var bookmarkResults = document.getElementById("bookmarkResults"); //   build output
-
-  bookmarkResults.innerHTML = ""; // loop bookmarks in local and out put one by one
-
-  for (var i = 0; i < bookmarks.length; i++) {
-    var name = bookmarks[i].name;
-    var url = bookmarks[i].url; //build output
-
-    bookmarkResults.innerHTML += '<div class="well">' + "<h3>" + name + ' <a class="btn btn-default" target="_blank" href="' + url + '">Visit</a> ' + " <a onclick=\"deleteBookmark('" + url + '\')" class="btn btn-danger" href="#">Delete</a> ' + "</h3>" + "</div>";
-  }
-}</script>
+    <script>// function deleteBookmark(url) {
+//   // get bookmarks from local storage
+//   let bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+//   // loop through bookmarks
+//   for (let i = 0; i < bookmarks.length; i++) {
+//     if (bookmarks[i].url === url) {
+//       // remove from array
+//       bookmarks.splice(i, 1);
+//     }
+//   }
+//   // reset back to local storage
+//   localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+//   // refetch bookmarks
+//   fetchBookmarks();
+// }
+// function fetchBookmarks() {
+//   let bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+//   // get output id
+//   let bookmarkResults = document.getElementById("bookmarkResults");
+//   //   build output
+//   bookmarkResults.innerHTML = "";
+//   // loop bookmarks in local and out put one by one
+//   for (let i = 0; i < bookmarks.length; i++) {
+//     let name = bookmarks[i].name;
+//     let url = bookmarks[i].url;
+//     //build output
+//     bookmarkResults.innerHTML +=
+//       '<div class="well">' +
+//       "<h3>" +
+//       name +
+//       ' <a class="btn btn-default" target="_blank" href="' +
+//       url +
+//       '">Visit</a> ' +
+//       " <a onclick=\"deleteBookmark('" +
+//       url +
+//       '\')" class="btn btn-danger" href="#">Delete</a> ' +
+//       "</h3>" +
+//       "</div>";
+//   }
+// }</script>
     <!-- scrpts -->
     <script src="/src.e31bb0bc.js"></script>
   </body>

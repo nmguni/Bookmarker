@@ -4,6 +4,10 @@ import "./styels/main.scss";
 
 document.getElementById("myForm").addEventListener("submit", saveBookmark);
 
+window.onload = function() {
+  console.log("it works");
+};
+
 // svaebook mark
 function saveBookmark(e) {
   // get form values
@@ -73,35 +77,35 @@ function fetchBookmarks(url) {
   console.log(url);
 }
 
-// // fetch book marks
-// function fetchBookmarks() {
-//   let bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+// fetch book marks
+window.onload =  fetchBookmarks() {
+  let bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
 
-//   // get output id
-//   let bookmarkResults = document.getElementById("bookmarkResults");
+  // get output id
+  let bookmarkResults = document.getElementById("bookmarkResults");
 
-//   //   build output
-//   bookmarkResults.innerHTML = "";
-//   // loop bookmarks in local and out put one by one
-//   for (let i = 0; i < bookmarks.length; i++) {
-//     let name = bookmarks[i].name;
-//     let url = bookmarks[i].url;
+  //   build output
+  bookmarkResults.innerHTML = "";
+  // loop bookmarks in local and out put one by one
+  for (let i = 0; i < bookmarks.length; i++) {
+    let name = bookmarks[i].name;
+    let url = bookmarks[i].url;
 
-//     //build output
-//     bookmarkResults.innerHTML +=
-//       '<div class="well">' +
-//       "<h3>" +
-//       name +
-//       ' <a class="btn btn-default" target="_blank" href="' +
-//       url +
-//       '">Visit</a> ' +
-//       " <a onclick=\"deleteBookmark('" +
-//       url +
-//       '\')" class="btn btn-danger" href="#">Delete</a> ' +
-//       "</h3>" +
-//       "</div>";
-//   }
-// }
+    //build output
+    bookmarkResults.innerHTML +=
+      '<div class="well">' +
+      "<h3>" +
+      name +
+      ' <a class="btn btn-default" target="_blank" href="' +
+      url +
+      '">Visit</a> ' +
+      " <a onclick=\"deleteBookmark('" +
+      url +
+      '\')" class="btn btn-danger" href="#">Delete</a> ' +
+      "</h3>" +
+      "</div>";
+  }
+}
 
 // form validation
 
