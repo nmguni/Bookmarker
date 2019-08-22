@@ -1,0 +1,1 @@
+{"version":3,"sources":["styels\\main.scss"],"names":[],"mappings":"AAEA;EACE,kBAHK;;;AAKP;EACE;;;AAGF;EACE","file":"main.7d3cf7bc.css","sourceRoot":"..\\src","sourcesContent":["$grey: #ccc;\r\n\r\nbody {\r\n  background-color: $grey;\r\n}\r\n.well {\r\n  color: red;\r\n}\r\n\r\n.wells {\r\n  color: green;\r\n}\r\n"]}

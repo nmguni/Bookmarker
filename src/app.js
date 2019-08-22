@@ -1,5 +1,5 @@
-const punch = greating => {
-  return `${greating}`;
-};
+// const punch = greating => {
+//   return `${greating}`;
+// };
 
-export { punch };
+// export { punch };

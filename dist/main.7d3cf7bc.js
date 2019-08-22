@@ -189,109 +189,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
-"use strict";
-
-require("./styels/main.scss");
-
-// //Listen for form submit
-document.getElementById("myForm").addEventListener("submit", saveBookmark); // svaebook mark
-
-function saveBookmark(e) {
-  // get form values
-  var siteName = document.getElementById("siteName").value;
-  var siteUrl = document.getElementById("siteUrl").value; //   clicking submit saves an empty book mark
-  //   if (!siteName || !siteUrl) {
-  //     alert("Please fill in the form");
-  //     return false;
-  //   }
-  //   // regular expression/ pattern matching/ rgx url
-  //   // this is regular expression to format a url
-  //   let expression = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi;
-  //   let regex = new RegExp(expression);
-  //   if (!siteUrl.match(regex)) {
-  //     alert("Pleasse us vald url");
-  //     return false;
-  //   }
-  //   let bookmark = {
-  //     name: siteName,
-  //     url: siteUrl
-  //   };
-  // local storage
-  //   localStorage.setItem("test", "hello world");
-  // test if bookmark is null
-
-  if (localStorage.getItem("bookmarks") === null) {
-    //init array
-    var bookmarks = []; // add array
-
-    bookmarks.push(bookmark); // set to localstorage
-    // JSON.stringify turns JSON into string
-
-    localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
-  } else {
-    // get bookmars from local storage
-    // jSON.parse() turns strng into json
-    var _bookmarks = JSON.parse(localStorage.getItem("bookmarks")); //add bookmark to array
-
-
-    _bookmarks.push(bookmark); // reset it back to local sorage
-
-
-    localStorage.setItem("bookmarks", JSON.stringify(_bookmarks));
-  } // refetch bookmarks
-
-
-  fetchBookmarks(); // prevent form from submitting
-
-  e.preventDefault();
-}
-
-function fetchBookmarks(url) {
-  console.log(url);
-} // fetch book marks
-
-
-function fetchBookmarks() {
-  var bookmarks = JSON.parse(localStorage.getItem("bookmarks")); // get output id
-
-  var bookmarkResults = document.getElementById("bookmarkResults"); //   build output
-
-  bookmarkResults.innerHTML = ""; // loop bookmarks in local and out put one by one
-
-  for (var i = 0; i < bookmarks.length; i++) {
-    var name = bookmarks[i].name;
-    var url = bookmarks[i].url; //build output
-
-    bookmarkResults.innerHTML += '<div class="well">' + "<h3>" + name + ' <a class="btn btn-default" target="_blank" href="' + url + '">Visit</a> ' + " <a onclick=\"deleteBookmark('" + url + '\')" class="btn btn-danger" href="#">Delete</a> ' + "</h3>" + "</div>";
-  }
-} // form validation
-
-
-function validateForm() {
-  //   clicking submit saves an empty book mark
-  if (!siteName || !siteUrl) {
-    alert("Please fill in the form");
-    return false;
-  } // regular expression/ pattern matching/ rgx url
-  // this is regular expression to format a url
-
-
-  var expression = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi;
-  var regex = new RegExp(expression);
-
-  if (!siteUrl.match(regex)) {
-    alert("Pleasse us vald url");
-    return false;
-  }
-
-  var bookmark = {
-    name: siteName,
-    url: siteUrl
-  };
-  return true;
-}
-},{"./styels/main.scss":"styels/main.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -494,5 +392,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
-//# sourceMappingURL=/src.e31bb0bc.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/main.7d3cf7bc.js.map

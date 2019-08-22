@@ -4,18 +4,75 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <!-- <link rel="stylesheet" href="./styels/main.css" /> -->
+    <link rel="stylesheet" href="./styels/main.scss" />
     <title>Book Mark App</title>
   </head>
-  <body>
-    <h1>Punch</h1>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, voluptate
-      ea accusamus iusto aliquid iure tempore doloribus necessitatibus cumque
-      quos corporis, quae delectus libero? Molestiae deserunt similique nulla
-      eos omnis?
-    </p>
-    <img src="./images/WCCFonepunchman1.jpg" alt="" />
+
+  <body onload="fetchBookmarks()">
+    <form id="myForm">
+      <div class="container">
+        <h1>Bookmark Your Favorite Sites</h1>
+        <h2>Site name</h2>
+        <input id="siteName" type="text" placeholder="Website Name" />
+        <br />
+        <h2>Site URl</h2>
+        <input id="siteUrl" placeholder="Website URL" />
+        <div class="clearfix">
+          <br />
+          <button type="submit" class="btn">submit</button>
+        </div>
+      </div>
+    </form>
+    <!-- book mark results -->
+    <div id="bookmarkResults"></div>
+    <script>
+      function deleteBookmark(url) {
+        // get bookmarks from local storage
+        let bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+        // loop through bookmarks
+        for (let i = 0; i < bookmarks.length; i++) {
+          if (bookmarks[i].url === url) {
+            // remove from array
+            bookmarks.splice(i, 1);
+          }
+        }
+        // reset back to local storage
+        localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+
+        // refetch bookmarks
+        fetchBookmarks();
+      }
+
+      function fetchBookmarks() {
+        let bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+
+        // get output id
+        let bookmarkResults = document.getElementById("bookmarkResults");
+
+        //   build output
+        bookmarkResults.innerHTML = "";
+        // loop bookmarks in local and out put one by one
+        for (let i = 0; i < bookmarks.length; i++) {
+          let name = bookmarks[i].name;
+          let url = bookmarks[i].url;
+
+          //build output
+          bookmarkResults.innerHTML +=
+            '<div class="well">' +
+            "<h3>" +
+            name +
+            ' <a class="btn btn-default" target="_blank" href="' +
+            url +
+            '">Visit</a> ' +
+            " <a onclick=\"deleteBookmark('" +
+            url +
+            '\')" class="btn btn-danger" href="#">Delete</a> ' +
+            "</h3>" +
+            "</div>";
+        }
+      }
+    </script>
+    <!-- scrpts -->
     <script src="./index.js"></script>
   </body>
 </html>
